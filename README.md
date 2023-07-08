@@ -60,19 +60,67 @@ u := uint(f)
 
 10. For Loop
 
+- Golang - traditional for Statement
+- for loop with condition
+- for loop with range
+- for loop with range and ignore index
+- Infinite loop
+
+
 11. Range
 
-12. Errors, Panic, Recover
+- Basic for-each loop (slice or array)
+- String iteration: runes or bytes
+- loop over individual bytes
+- Map iteration: keys and values
+- Channel iteration
+//******Gotchas********
+- Unexpected values in range loop
+- Can’t change entries in range loop
+
+12. Errors
+- Constructing Errors
+- Type Errors
+- Defining Expected Errors
+- Wrapping Errors
+
+13. Panic and Recover
+
 
 # Going Deeper
 
 1. Types and type assertions
 
+proporciona acceso al valor concreto subyacente de un valor de interfaz.
+Básicamente, se utiliza para eliminar la ambigüedad de las variables de la interfaz.
+
 2. Interfaces
+
+
 
 3. Context
 
+ Un contexto incluye plazos, señales de cancelación y otros valores del ámbito de la solicitud a través de los límites y las rutinas de la API.
+
+ cd 
+
+ go run main.go
+
+ abrir el navegador
+
+
 4. Goroutines
+
+syntax:
+
+// Anonymous function call
+go func (parameter_list){
+// statement
+}(arguments)
+
+
+ wg -> WaitGroup
+ wg is used to wait for the program to finish.
 
 5. Channels
 
