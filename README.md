@@ -122,17 +122,49 @@ go func (parameter_list){
  wg -> WaitGroup
  wg is used to wait for the program to finish.
 
+---- Locking
+Two other useful atomic functions are LoadInt64 and StoreInt64. These functions provide a safe way to read and write to an integer value. Here’s an example using LoadInt64 and StoreInt64 to create a synchronous flag that can alert multiple goroutines of a special condition in a program.
+
+--Mutex
+
+Another way to synchronize access to a shared resource is by using a mutex. A mutex is named after the concept of mutual exclusion. A mutex is used to create a critical section around code that ensures only one goroutine at a time can execute that code section. 
+
+
+A *mutex* is a synchronization object. You acquire a lock on a mutex at the beginning of a section of code, and release it at the end, in order to ensure that no other thread is accessing the same data at the same time. A mutex typically has a lifetime equal to that of the data it is protecting, and that one mutex is accessed by multiple threads.
+
+A *lock* object is an object that encapsulates that lock. When the object is constructed it acquires the lock on the mutex. When it is destructed the lock is released. You typically create a new lock object for every access to the shared data.
+
 5. Channels
+
+channels that synchronize goroutines as they send and receive the resources they need to share between each other.
+
+When declaring a channel, the type of data that will be shared needs to be specified. Values and pointers of built-in, named, struct, and reference types can be shared through a channel.
+
+Each channel has a type associated with it. This type is the type of data that the channel is allowed to transport. No other type is allowed to be transported using the channel.
+
+data := <- a // read from channel a  
+a <- data // write to channel a  
+
+https://golangbot.com/channels/
+
+Sends and receives are blocking by default
+Sends and receives to a channel are blocking by default. What does this mean? When data is sent to a channel, the control is blocked in the send statement until some other Goroutine reads from that channel. Similarly, when data is read from a channel, the read is blocked until some Goroutine writes data to that channel.
+
 
 6.  Buffer
 
 7. Select
 
-8. Mutex
+The select statement lets a goroutine wait on multiple communication operations.
 
+A select blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
+
+8. Mutex
+https://www.sohamkamani.com/golang/mutex/
 9. Working with json
 
 10. Go Modules
+
 
 # ORMs
 
