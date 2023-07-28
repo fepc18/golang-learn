@@ -49,7 +49,7 @@ func SumInts(m map[string]int64) int64 {
 // SumFloats adds together the values of m.
 func SumFloats(m map[string]float64) float64 {
 	var s float64
-	for a, v := range m {
+	for ab, v := range m {
 		s += v
 	}
 	return s
